@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101923">
+  <title>Expediente PI — Detective de la Propiedad Intelectual</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Expediente PI, inicio">
+      <span class="brand-mark">⌕</span>
+      <span>ARCHIVO <b>PI</b></span>
+    </a>
+    <div class="top-meta"><span class="status-dot"></span> UNIDAD DE INVESTIGACIÓN · COLOMBIA</div>
+  </header>
+
+  <main class="shell">
+    <section id="intro-screen" class="screen intro-screen active">
+      <div class="intro-copy">
+        <p class="eyebrow">CASO 001 · ARCHIVO CONFIDENCIAL</p>
+        <h1>Detective de la<br><em>Propiedad Intelectual</em></h1>
+        <p class="lead">Alguien está usando creaciones ajenas sin tener claro si puede hacerlo. Tu misión es investigar las pistas, identificar qué se protege y resolver cada expediente.</p>
+        <div class="intro-facts">
+          <div><span class="fact-icon">⌖</span><span><b>10 expedientes</b><small>Casos inspirados en situaciones cotidianas</small></span></div>
+          <div><span class="fact-icon">◷</span><span><b>Sin límite de tiempo</b><small>Investiga a tu propio ritmo</small></span></div>
+          <div><span class="fact-icon">★</span><span><b>Rango de detective</b><small>Gana puntos por cada acierto</small></span></div>
+        </div>
+        <div class="intro-actions">
+          <button id="start-btn" class="btn btn-primary">Abrir primer expediente <span>→</span></button>
+          <button id="menu-btn" class="btn btn-secondary">Elegir expediente <span>☰</span></button>
+        </div>
+        <p class="micro-note">Modalidad individual · Nivel introductorio</p>
+      </div>
+      <div class="case-cover" aria-label="Carpeta de investigación">
+        <div class="stamp">CONFIDENCIAL</div>
+        <div class="magnifier">⌕</div>
+        <div class="folder-label">EXPEDIENTE<br><strong>PI–001</strong></div>
+        <div class="folder-lines"><i></i><i></i><i></i></div>
+        <div class="cover-bottom">DIVISIÓN DE IDEAS Y CREACIONES</div>
+      </div>
+    </section>
+
+    <section id="menu-screen" class="screen menu-screen">
+      <div class="game-heading">
+        <div><p class="eyebrow">ARCHIVO GENERAL · SELECCIÓN DE CASO</p><h2>Elige un expediente</h2></div>
+        <div class="score-panel"><span>PUNTUACIÓN</span><strong id="menu-score">000</strong></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="menu-progress-text">EXPEDIENTES RESUELTOS: 0 DE 10</span><span id="menu-progress-percent">0%</span></div>
+        <div class="progress-track"><div id="menu-progress-fill" class="progress-fill" style="width:0%"></div></div>
+      </div>
+      <div id="case-grid" class="case-grid"></div>
+      <div class="menu-actions">
+        <span class="points-hint">Resuelve todos los expedientes para abrir el <b>informe final</b></span>
+        <button id="report-btn" class="btn btn-primary" disabled>Ver informe final <span>→</span></button>
+      </div>
+      <div class="footer-note"><span>⌕</span> PUEDES INVESTIGAR LOS EXPEDIENTES EN CUALQUIER ORDEN.</div>
+    </section>
+
+    <section id="game-screen" class="screen game-screen">
+      <div class="game-heading">
+        <div><button id="back-btn" class="back-link hidden">← EXPEDIENTES</button><p class="eyebrow">INVESTIGACIÓN EN CURSO</p><h2 id="case-title">Expediente 01</h2></div>
+        <div class="score-panel"><span>PUNTUACIÓN</span><strong id="score">000</strong></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="progress-text">EXPEDIENTE 1 DE 10</span><span id="progress-percent">10%</span></div>
+        <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+      </div>
+
+      <div class="case-layout">
+        <aside class="evidence-card">
+          <div class="evidence-top"><span>PRUEBA VISUAL</span><span class="evidence-number" id="evidence-number">A–01</span></div>
+          <div class="evidence-art" id="evidence-art"><span class="art-symbol">♫</span></div>
+          <div class="evidence-caption"><span class="tiny-label">ELEMENTO BAJO INVESTIGACIÓN</span><strong id="evidence-name">Una canción</strong></div>
+          <div class="evidence-stamp">EN ANÁLISIS</div>
+        </aside>
+
+        <article class="question-card">
+          <div class="case-tag"><span class="tag-dot"></span><span id="category-tag">DERECHOS DE AUTOR</span></div>
+          <h3 id="question">Pregunta del expediente</h3>
+          <p id="scenario" class="scenario"></p>
+          <p class="instruction">Selecciona la pista que resuelve el caso:</p>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+          <div class="question-actions">
+            <span class="points-hint">Cada respuesta correcta vale <b>100 puntos</b></span>
+            <button id="next-btn" class="btn btn-primary" disabled>Siguiente expediente <span>→</span></button>
+          </div>
+        </article>
+      </div>
+      <div class="footer-note"><span>⌕</span> INVESTIGA CON ATENCIÓN. ALGUNAS RESPUESTAS DEPENDEN DE LAS CIRCUNSTANCIAS.</div>
+    </section>
+
+    <section id="result-screen" class="screen result-screen">
+      <p class="eyebrow">INVESTIGACIÓN FINALIZADA · INFORME DE CIERRE</p>
+      <div class="result-emblem">★</div>
+      <h2 id="result-title">Caso resuelto</h2>
+      <p id="result-message" class="lead result-lead"></p>
+      <div class="result-score"><span>PUNTUACIÓN FINAL</span><strong id="final-score">000</strong><small>de 1000 puntos</small></div>
+      <div class="rank-card"><span class="rank-icon">⌖</span><div><small>RANGO OBTENIDO</small><strong id="rank-name">Investigador en formación</strong><p id="rank-description"></p></div></div>
+      <div class="review-box"><h3>Tu informe de investigación</h3><div id="review-list"></div></div>
+      <div class="result-actions"><button id="restart-btn" class="btn btn-primary">Volver a investigar ↻</button></div>
+      <p class="disclaimer">Este juego tiene fines educativos. No constituye asesoría jurídica. La protección y el uso permitido de una creación dependen de la legislación aplicable y de las circunstancias de cada caso.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>ARCHIVO PI</span><span>APRENDER · CREAR · RESPETAR</span></footer>
+  <script src="game.js"></script>
+</body>
+</html>
